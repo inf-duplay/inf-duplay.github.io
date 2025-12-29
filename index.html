@@ -1,27 +1,334 @@
-<script>
-window.ChatWidgetConfig = {
-webhook: {
-url: 'https://gempitarizki.app.n8n.cloud/webhook/50ffe205-4c37-40d8-9faf-c2649f2dd8a2/chat',
-route: 'general'
-},
-branding: {
-logo:
-'https://cdn-icons-png.flaticon.com/512/4712/4712035.png',
-name: 'Asisten AI',
-welcomeText: 'Halo! Ada yang bisa saya bantu tentang materi
-pelajaran SMA ?',
-responseTimeText: 'Saya biasanya menjawab dalam hitungan
-detik'
-},
-style: {
-primaryColor: '#10b981',
-secondaryColor: '#059669',
-position: 'right',
-backgroundColor: '#ffffff',
-fontColor: '#1f2937'
-}
-};
-</script>
-<script
-src="https://cdn.jsdelivr.net/gh/funtastic418/chat-widget@main/chat-widge
-t.js" defer></script>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Pengalihan - 7kaih SMA Negeri 2 Playen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #2575fc;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .info-card {
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2575fc;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-card h2 {
+            color: #2575fc;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card h2 i {
+            font-size: 1.8rem;
+        }
+        
+        .link-display {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px dashed #6a11cb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .link-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2575fc;
+            word-break: break-all;
+        }
+        
+        .redirect-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .redirect-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 117, 252, 0.4);
+        }
+        
+        .redirect-btn:active {
+            transform: translateY(0);
+        }
+        
+        .apk-section {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        
+        .apk-card {
+            background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(252, 182, 159, 0.3);
+        }
+        
+        .apk-card h3 {
+            color: #d35400;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .apk-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #d35400;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(211, 84, 0, 0.3);
+            margin-top: 10px;
+        }
+        
+        .apk-download-btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(211, 84, 0, 0.4);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .countdown {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2575fc;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .link-display {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.7rem;
+            }
+            
+            .logo {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .apk-download-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">7K</div>
+            <h1>7kaih - SMA Negeri 2 Playen</h1>
+            <p>Informasi Pengalihan Link</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-card">
+                <h2><i class="fas fa-exclamation-circle"></i> Perhatian</h2>
+                <p>Website ini berisi informasi bahwa link telah dialihkan ke alamat baru. Anda akan diarahkan ke link berikut:</p>
+                
+                <div class="link-display">
+                    <span class="link-text">7kaih.sma2playen.sch.id</span>
+                    <span class="redirect-badge">LINK BARU</span>
+                </div>
+                
+                <p>Pengalihan otomatis akan terjadi dalam <span id="countdown">10</span> detik. Jika tidak terjadi pengalihan otomatis, silakan klik tombol di bawah ini:</p>
+                
+                <a href="https://7kaih.sma2playen.sch.id" class="redirect-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Kunjungi Link Baru
+                </a>
+            </div>
+            
+            <div class="apk-section">
+                <h2><i class="fas fa-mobile-alt"></i> Untuk Pengguna Android</h2>
+                <p>Jika Anda menggunakan perangkat Android, Anda dapat mengunduh aplikasi resmi 7kaih untuk pengalaman yang lebih baik.</p>
+                
+                <div class="apk-card">
+                    <h3>Download Aplikasi 7kaih</h3>
+                    <p>Klik tombol di bawah untuk mengunduh aplikasi:</p>
+                    <a href="7kaih - SMA Negeri 2 Playen.apk" class="apk-download-btn" download>
+                        <i class="fas fa-download"></i> 7kaih - SMA Negeri 2 Playen.apk
+                    </a>
+                </div>
+                
+                <div style="margin-top: 25px; padding: 15px; background-color: #f0f8ff; border-radius: 10px;">
+                    <h3 style="color: #2575fc; margin-bottom: 10px;"><i class="fas fa-question-circle"></i> Cara Instal APK</h3>
+                    <ol style="text-align: left; padding-left: 20px; margin-top: 10px;">
+                        <li>Unduh file APK di atas</li>
+                        <li>Buka file manager dan cari file yang telah diunduh</li>
+                        <li>Izinkan instalasi dari sumber tidak dikenal jika diperlukan</li>
+                        <li>Ikuti petunjuk instalasi</li>
+                        <li>Aplikasi siap digunakan</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown untuk pengalihan otomatis
+        let countdownElement = document.getElementById('countdown');
+        let countdown = 10;
+        
+        const countdownInterval = setInterval(function() {
+            countdown--;
+            countdownElement.textContent = countdown;
+            
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = "https://7kaih.sma2playen.sch.id";
+            }
+        }, 1000);
+        
+        // Fungsi untuk mendownload APK
+        function downloadAPK() {
+            // Membuat elemen <a> sementara untuk download
+            const link = document.createElement('a');
+            link.href = '7kaih - SMA Negeri 2 Playen.apk';
+            link.download = '7kaih - SMA Negeri 2 Playen.apk';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Tampilkan notifikasi
+            alert('Download APK telah dimulai. Jika download tidak dimulai secara otomatis, periksa folder download Anda.');
+        }
+        
+        // Deteksi perangkat Android
+        function isAndroid() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            return userAgent.indexOf("android") > -1;
+        }
+        
+        // Tampilkan pesan khusus untuk pengguna Android
+        window.addEventListener('DOMContentLoaded', (event) => {
+            if (isAndroid()) {
+                // Tambahkan pesan khusus untuk Android
+                const androidMessage = document.createElement('div');
+                androidMessage.innerHTML = `
+                    <div style="background-color: #e8f5e9; color: #2e7d32; padding: 10px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #4caf50;">
+                        <i class="fas fa-robot"></i> <strong>Perangkat Android Terdeteksi:</strong> Disarankan untuk mengunduh aplikasi untuk pengalaman terbaik.
+                    </div>
+                `;
+                
+                const apkSection = document.querySelector('.apk-section');
+                apkSection.insertBefore(androidMessage, apkSection.firstChild);
+            }
+        });
+        
+        // Tangani klik tombol download APK
+        document.querySelector('.apk-download-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            downloadAPK();
+        });
+    </script>
+</body>
+</html>
